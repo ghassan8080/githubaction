@@ -1,14 +1,14 @@
 name: workflow dispatch
 
 on:
-  workflow_dispatch:
-    inputs:
-      versionName:
-        required: true
-        description: "this version name workflow"
-  # repository_dispatch:
-  #   types: [test]
-  # push:
+  # workflow_dispatch:
+  #   inputs:
+  #     versionName:
+  #       required: true
+  #       description: "this version name workflow"
+  # # repository_dispatch:
+  # #   types: [test]
+  push
   #   branches:
   #     - "main"
   # pull_request:
@@ -22,6 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: before checkout action
+        if: github.ref == 'refs/head/feature'
         run: ls
         shell: bash
 
