@@ -1,0 +1,15 @@
+name: Repository Dispatch Build
+
+on:
+  repository_dispatch:
+    types:
+      - build
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - name: Custom Build
+        run: echo "Running build triggered by repository_dispatch event"
