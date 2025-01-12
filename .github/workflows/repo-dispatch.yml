@@ -1,6 +1,8 @@
 name: workflow dispatch
 
 on:
+  repository_dispatch:
+    types: [test]
   push:
     branches:
       - "main"
